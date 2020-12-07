@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "294712668743",
+    "project_id": "station-tank",
+    "storage_bucket": "station-tank.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294712668743:android:1f15c3f59305a52649b762",
+        "android_client_info": {
+          "package_name": "com.leandrodss.stationtank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294712668743-g6qbr58de8nefra3trbg71vutdfogtkj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.leandrodss.stationtank",
+            "certificate_hash": "cf4e21d1761ff938b37cb5ebaf9601f295638bc3"
+          }
+        },
+        {
+          "client_id": "294712668743-029ou05vlfdktlkasc2rdo32tukbqgm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY-_elU4pnrrpmB80bOgfdLHnQ8dqCBzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294712668743-029ou05vlfdktlkasc2rdo32tukbqgm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
