@@ -1,3 +1,4 @@
 <resources>
+    <string name="api_google_maps">AIzaSyB4-ShgGCePEIkNa323YkTy83MHNnjosnE</string>
     <string name="app_name">StationTank</string>
 </resources>
