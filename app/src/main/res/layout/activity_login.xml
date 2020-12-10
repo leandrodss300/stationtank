@@ -5,35 +5,36 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:background="@color/colorPrimary"
-tools:context=".MainActivity">
+tools:context=".activity.LoginActivity">
 
-<EditText
-    android:id="@+id/editText3"
-    android:layout_width="290dp"
-    android:layout_height="45dp"
-    android:ems="10"
-    android:hint="Digite a sua senha"
-    android:inputType="textPersonName"
-    android:textColor="#572626"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.421"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:layout_editor_absoluteY="375dp" />
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Digite a sua senha"
+        android:inputType="textPersonName"
+        android:textColor="#572626"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
-<TextView
-    android:id="@+id/textView3"
-    android:layout_width="107dp"
-    android:layout_height="24dp"
-    android:layout_marginTop="344dp"
-    android:text="Senha:"
-    android:textColor="#FFFFFF"
-    android:textSize="18sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.167"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="107dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="352dp"
+        android:text="Senha:"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<ImageView
+    <ImageView
     android:id="@+id/imageView"
     android:layout_width="186dp"
     android:layout_height="125dp"
@@ -44,20 +45,21 @@ tools:context=".MainActivity">
     app:layout_constraintTop_toTopOf="parent"
     app:srcCompat="@drawable/ic_directions_bus_black_24dp" />
 
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="152dp"
-    android:layout_height="51dp"
-    android:fontFamily="serif"
-    android:text="Station Tank"
-    android:textColor="#FFFFFF"
-    android:textSize="20sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.536"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:layout_editor_absoluteY="177dp" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="152dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="176dp"
+        android:fontFamily="serif"
+        android:text="Station Tank"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
+    <TextView
     android:id="@+id/textView2"
     android:layout_width="107dp"
     android:layout_height="24dp"
@@ -70,20 +72,21 @@ tools:context=".MainActivity">
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
-<EditText
-    android:id="@+id/editText2"
-    android:layout_width="290dp"
-    android:layout_height="45dp"
-    android:ems="10"
-    android:hint="Digite um nome de usuário"
-    android:inputType="textPersonName"
-    android:textColor="#572626"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.421"
-    app:layout_constraintStart_toStartOf="parent"
-    tools:layout_editor_absoluteY="292dp" />
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="290dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="296dp"
+        android:ems="10"
+        android:hint="Digite um nome de usuário"
+        android:inputType="textPersonName"
+        android:textColor="#572626"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<Button
+    <Button
     android:id="@+id/btnLogin"
     android:layout_width="169dp"
     android:layout_height="54dp"
@@ -95,5 +98,18 @@ tools:context=".MainActivity">
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.504"
     app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textviewCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="176dp"
+        android:onClick="abrirTelaCadastro"
+        android:text="Não tem conta?Cadastre-se"
+        android:textColor="#FFEEEE"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
