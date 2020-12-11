@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     public void logarUsuario(View view){
         String email = editEmail.getText().toString();
         String senha = editSenha.getText().toString();
-       
+
         ConfiguracaoFirebase.signWithEmailAndPassword(getApplicationContext(),email, senha,
                 new OnCompleteListener<AuthResult>() {
             @Override
