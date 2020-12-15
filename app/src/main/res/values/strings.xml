@@ -3,4 +3,7 @@
     <string name="app_name">StationTank</string>
     <string name="open_drawer">abrir</string>
     <string name="close_drawer">fechar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
