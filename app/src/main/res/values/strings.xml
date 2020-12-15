@@ -3,9 +3,9 @@
     <string name="app_name">StationTank</string>
     <string name="title_activity_maps">Map</string>
     <string name="Titulo">Título</string>
-    <string name="R$30">R$30</string>
+    <string name="Valor">R$30</string>
     <string name="alguma_descri_o_aqui">Alguma descrição aqui</string>
     <string name="algum_texto_aqui">Algum texto aqui</string>
     <string name="denuncia">Denuncia</string>
-    <string name="seila">Seila</string>
+    <string name="Sair">Sair</string>
 </resources>
