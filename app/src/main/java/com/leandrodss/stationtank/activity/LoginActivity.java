@@ -34,12 +34,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     @Override
-    protected void onStart() {
+   public void onStart() {
         super.onStart();
         if(ConfiguracaoFirebase.getFirebaseAuth().getCurrentUser()!=null){
             abrirTelaPrincipal();
         }
-    }
+    } 
 
     public void logarUsuario(View view){
         String email = editEmail.getText().toString();
