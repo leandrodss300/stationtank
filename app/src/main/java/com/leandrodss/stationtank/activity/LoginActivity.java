@@ -11,13 +11,14 @@ import android.widget.EditText;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.leandrodss.stationtank.R;
 import com.leandrodss.stationtank.activity.config.ConfiguracaoFirebase;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editEmail,editSenha;
-
+    private FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +26,11 @@ public class LoginActivity extends AppCompatActivity {
 
         editEmail = findViewById(R.id.editEmailLogin);
         editSenha = findViewById(R.id.editSenhaLogin);
+        auth = ConfiguracaoFirebase.getFirebaseAuth();
+        if(auth.getCurrentUser()!=null){
+            abrirTelaPrincipal();
+        }
 
-        ConfiguracaoFirebase.getFirebaseAuth().signOut();
 
     }
     @Override
@@ -60,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void abrirTelaPrincipal(){
-        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        Intent intent = new Intent(LoginActivity.this,NavigationActivity.class);
         startActivity(intent);
     }
 }

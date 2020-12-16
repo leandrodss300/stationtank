@@ -21,6 +21,11 @@
             <item
                 android:id="@+id/menuAboutUs" android:icon="@drawable/ic_about_24dp"
                 android:title="Sobre nós" />
+            <item
+                android:id="@+id/menuSair" android:icon="@drawable/ic_about_24dp"
+                android:title="Sair"
+                android:onClick="logout"
+                />
         </menu>
     </item>
 </menu>

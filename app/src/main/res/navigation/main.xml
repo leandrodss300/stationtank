@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/menuProfile"
-        android:name="com.leandrodss.stationtank.activity.ProfileFragment"
+        android:name="com.leandrodss.stationtank.activity.fragments.ProfileFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/menuNotifications"
-        android:name="com.leandrodss.stationtank.activity.NotificationFragment"
+        android:name="com.leandrodss.stationtank.activity.fragments.NotificationFragment"
         android:label="Notificacoes"
         tools:layout="@layout/fragment_notification" />
     <fragment
         android:id="@+id/menuSettings"
-        android:name="com.leandrodss.stationtank.activity.SettingsFragment"
+        android:name="com.leandrodss.stationtank.activity.fragments.SettingsFragment"
         android:label="Config"
         tools:layout="@layout/fragment_settings" />
 
