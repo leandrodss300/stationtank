@@ -8,7 +8,9 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.TotalCaptureResult;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -16,6 +18,10 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -24,7 +30,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,15 +40,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.leandrodss.stationtank.Permissoes;
 import com.leandrodss.stationtank.R;
+import com.leandrodss.stationtank.activity.Update;
 import com.leandrodss.stationtank.model.Posto;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final int UPDATE_PRECO = 1;
     private GoogleMap mMap;
     private String[] permissoes = new String[]{
             Manifest.permission.ACCESS_FINE_LOCATION
@@ -50,6 +61,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private DatabaseReference databaseReference;
 
     private ArrayList<Posto> listaPostos = new ArrayList<>();
+    private TextView titulo, preco;
+    private LinearLayout edit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,12 +149,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, 0, 0, locationListener
+                    LocationManager.GPS_PROVIDER, 20000, 0, locationListener
             );
         }
 
         //Evento de click no mapa
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+       /*mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 Double latitude = latLng.latitude;
@@ -150,7 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 mMap.addMarker(new MarkerOptions().position(latLng).title("Local").snippet("Descrição").icon(BitmapDescriptorFactory.fromResource(R.drawable.gasoline)));
             }
-        });
+        });*/
 
         //Exibição do mapa
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -202,6 +216,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog.show();
     }
 
+    public void Marker(){
+
+    }
+
+    public void abrirEdit(Posto posto){
+        Intent intent = new Intent(MapsActivity.this, Update.class);
+
+        intent.putExtra("postos", posto);
+        startActivityForResult(intent,UPDATE_PRECO);
+    }
+
     public void getData(){
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -213,8 +238,50 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
 
                 //desenhar os marcadores
-                for(Posto posto : listaPostos){
+                for(final Posto posto : listaPostos){
                     LatLng localUsuario = new LatLng(posto.getLatitude(), posto.getLongitude());
+
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker) {
+                            final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                                    MapsActivity.this, R.style.BottomSheetDialogTheme
+                            );
+                            View bottomSheetView = LayoutInflater.from(getApplicationContext()).inflate(
+                                    R.layout.layout_bottom_sheet,(LinearLayout)findViewById(R.id.bottomSheetContainer)
+                            );
+
+                            titulo = bottomSheetView.findViewById(R.id.titulo);
+                            preco = bottomSheetView.findViewById(R.id.preco);
+                            edit = bottomSheetView.findViewById(R.id.edit);
+
+                            //Botão de editar o preço
+                            edit.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    bottomSheetDialog.dismiss();
+                                    abrirEdit(posto);
+
+                                    //Toast.makeText(MapsActivity.this, "Chegou aqui", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                            titulo.setText(posto.getNome());
+                            preco.setText(posto.getPreco());
+                            bottomSheetView.findViewById(R.id.buttonAlgo).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(MapsActivity.this, "Foi...", Toast.LENGTH_SHORT).show();
+                                    bottomSheetDialog.dismiss();
+                                }
+                            });
+
+                            bottomSheetDialog.setContentView(bottomSheetView);
+                            bottomSheetDialog.show();
+
+                            return false;
+                        }
+                    });
 
                     mMap.addMarker(new MarkerOptions().position(localUsuario).title(posto.getNome()).icon(BitmapDescriptorFactory.fromResource(R.drawable.gasolinee)));
                     //avisando o adapter que os dados mudaram

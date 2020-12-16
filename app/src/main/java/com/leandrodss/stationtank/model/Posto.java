@@ -1,7 +1,11 @@
 package com.leandrodss.stationtank.model;
 
-public class Posto {
+import java.io.Serializable;
+
+public class Posto implements Serializable {
+    private String id;
     private String nome;
+    private String preco;
     private Double latitude;
     private Double longitude;
 
@@ -9,17 +13,10 @@ public class Posto {
 
     }
 
-    @Override
-    public String toString() {
-        return "Posto{" +
-                "nome='" + nome + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", longitude='" + longitude + '\'' +
-                '}';
-    }
-
-    public Posto(String nome, Double latitude, Double longitude) {
+    public Posto(String id, String nome, String preco, Double latitude, Double longitude) {
+        this.id = id;
         this.nome = nome;
+        this.preco = preco;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -47,4 +44,29 @@ public class Posto {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /*@Override
+    public String toString() {
+        return "Posto{" +
+                "nome='" + nome + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", longitude='" + longitude + '\'' +
+                '}';
+    }*/
 }

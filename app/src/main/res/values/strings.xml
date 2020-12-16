@@ -2,4 +2,13 @@
     <string name="api_google_maps">AIzaSyB4-ShgGCePEIkNa323YkTy83MHNnjosnE</string>
     <string name="app_name">StationTank</string>
     <string name="title_activity_maps">Map</string>
+    <string name="Titulo">Título</string>
+    <string name="Valor">R$30</string>
+    <string name="alguma_descri_o_aqui">Alguma descrição aqui</string>
+    <string name="algum_texto_aqui">Algum texto aqui</string>
+    <string name="denuncia">Denuncia</string>
+    <string name="Sair">Sair</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
