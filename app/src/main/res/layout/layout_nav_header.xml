@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/roundedImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/perfil_sem_foto_facebook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_oval="true" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/roundedImageView"
+        app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
+        app:layout_constraintStart_toStartOf="@+id/roundedImageView"
+        app:layout_constraintTop_toTopOf="@+id/roundedImageView"/>
+
+    <TextView
+        android:id="@+id/textEmailUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="usuario"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        app:layout_constraintStart_toEndOf="@id/roundedImageView" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="online"
+        android:textColor="@color/colorGreen"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+        app:layout_constraintTop_toBottomOf="@+id/textEmailUsuario" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0.1dp"
+        android:layout_marginTop="8dp"
+        android:background="#6E6A6A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roundedImageView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

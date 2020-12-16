@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuProfile" android:icon="@drawable/ic_man"
+        android:title="Perfil" />
+    <item
+        android:id="@+id/menuNotifications" android:icon="@drawable/ic_notifications_24dp"
+        android:title="Notificações" />
+    <item android:id="@+id/menuCollection" android:icon="@drawable/ic_collection_24dp"
+        android:title="Coleções" />
+    <item android:id="@+id/menuInbox" android:icon="@drawable/ic_email_black_24dp"
+        android:title="Caixa entrada" />
+    <item android:id="@+id/menuOrders" android:icon="@drawable/ic_orders_24dp"
+        android:title="Pedidos" />
+
+    <item android:title="Outros">
+        <menu>
+            <item android:id="@+id/menuSettings" android:icon="@drawable/ic_settings_24dp" android:title="Configurações" />
+            <item
+                android:id="@+id/menuSupport" android:icon="@drawable/ic_customer_service"
+                android:title="Suporte"/>
+            <item
+                android:id="@+id/menuAboutUs" android:icon="@drawable/ic_about_24dp"
+                android:title="Sobre nós" />
+            <item
+                android:id="@+id/menuSair" android:icon="@drawable/ic_about_24dp"
+                android:title="Sair"
+                android:onClick="logout"
+                />
+        </menu>
+    </item>
+</menu>

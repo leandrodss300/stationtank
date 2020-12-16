@@ -1,7 +1,7 @@
 package com.leandrodss.stationtank.activity.model;
 
 public class Usuario {
-
+        private String id;
         private String nome;
         private String email;
         private String senha;
@@ -39,5 +39,13 @@ public class Usuario {
         public void setSenha(String senha) {
             this.senha = senha;
         }
-    }
+
+        public String getId() {
+        return id;
+        }
+
+        public void setId(String id) {
+        this.id = id;
+        }
+}
 

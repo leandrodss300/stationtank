@@ -8,6 +8,9 @@
     <string name="algum_texto_aqui">Algum texto aqui</string>
     <string name="denuncia">Denuncia</string>
     <string name="Sair">Sair</string>
+    <string name="open_drawer">abrir</string>
+    <string name="close_drawer">fechar</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
