@@ -51,6 +51,7 @@ import java.util.Map;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private static final int UPDATE_PRECO = 1;
     private GoogleMap mMap;
     private String[] permissoes = new String[]{
             Manifest.permission.ACCESS_FINE_LOCATION
@@ -219,9 +220,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    public void abrirEdit(){
+    public void abrirEdit(Posto posto){
         Intent intent = new Intent(MapsActivity.this, Update.class);
-        startActivity(intent);
+
+        intent.putExtra("postos", posto);
+        startActivityForResult(intent,UPDATE_PRECO);
     }
 
     public void getData(){
@@ -256,7 +259,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             edit.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    abrirEdit();
+                                    bottomSheetDialog.dismiss();
+                                    abrirEdit(posto);
+
                                     //Toast.makeText(MapsActivity.this, "Chegou aqui", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -273,6 +278,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             bottomSheetDialog.setContentView(bottomSheetView);
                             bottomSheetDialog.show();
+
                             return false;
                         }
                     });

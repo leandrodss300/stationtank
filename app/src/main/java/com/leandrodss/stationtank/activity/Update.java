@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.leandrodss.stationtank.R;
@@ -36,8 +37,13 @@ public class Update extends AppCompatActivity {
             public void onClick(View view) {
                 String preco = editText.getText().toString();
                 posto.setPreco(preco);
-                databaseReference.child(posto.getId()).setValue(posto);
-                finish();
+                databaseReference.child(posto.getId()).setValue(posto).addOnSuccessListener(Update.this, new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        finish();
+                    }
+                });
+
             }
         });
     }
