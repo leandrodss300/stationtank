@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.leandrodss.stationtank.R;
 import com.leandrodss.stationtank.activity.config.ConfiguracaoFirebase;
 import com.leandrodss.stationtank.activity.model.Usuario;
@@ -28,12 +30,14 @@ public class NavigationActivity extends AppCompatActivity {
     FirebaseAuth auth;
     private TextView a;
     private Usuario usuario;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         auth = ConfiguracaoFirebase.getFirebaseAuth();
+
 
 
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
@@ -64,4 +68,7 @@ public class NavigationActivity extends AppCompatActivity {
         auth.signOut();
         finish();
     }
+
+
+
 }
