@@ -55,5 +55,7 @@ dependencies {
 
     //noinspection GradleCompatible
     implementation 'com.android.support:support-v4:27.0.2'
+    //Agrupa os marcadores
+    implementation 'com.google.maps.android:android-maps-utils:0.4+'
 
 }
