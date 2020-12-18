@@ -51,6 +51,7 @@ public class CadastroActivity extends AppCompatActivity {
                 }else{
                     /* ------------------------------ */
                     /* Video 15 */
+                    Toast.makeText(getApplicationContext(),"Usuario não cadastrado",Toast.LENGTH_SHORT).show();
                     ConfiguracaoFirebase.verifyLoginException(getApplicationContext(), task);
 
                 }

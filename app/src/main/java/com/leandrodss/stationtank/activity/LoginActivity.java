@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
    public void onStart() {
         super.onStart();
         if(ConfiguracaoFirebase.getFirebaseAuth().getCurrentUser()!=null){
-            abrirTelaPrincipal();
+
         }
     } 
 

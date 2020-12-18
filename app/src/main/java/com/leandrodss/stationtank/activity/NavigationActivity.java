@@ -10,6 +10,9 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 
+import android.Manifest;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,6 +22,9 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.leandrodss.stationtank.Permissoes;
 import com.leandrodss.stationtank.R;
 import com.leandrodss.stationtank.activity.config.ConfiguracaoFirebase;
 import com.leandrodss.stationtank.activity.model.Usuario;
@@ -28,12 +34,22 @@ public class NavigationActivity extends AppCompatActivity {
     FirebaseAuth auth;
     private TextView a;
     private Usuario usuario;
+    private DatabaseReference databaseReference;
+    private String[] permissoes = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
+
+    private LocationManager locationManager;
+    private LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
         auth = ConfiguracaoFirebase.getFirebaseAuth();
+        //Validar permissões
+        Permissoes.validarPermissoes(permissoes, this, 1);
+
 
 
         final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
@@ -64,4 +80,7 @@ public class NavigationActivity extends AppCompatActivity {
         auth.signOut();
         finish();
     }
+
+
+
 }

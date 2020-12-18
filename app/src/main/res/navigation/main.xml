@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/menuProfile"
-        android:name="com.leandrodss.stationtank.activity.fragments.ProfileFragment"
+        android:name="com.leandrodss.stationtank.activity.fragments.MapsFragment"
         android:label="Perfil"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/menuNotifications"
         android:name="com.leandrodss.stationtank.activity.fragments.NotificationFragment"
